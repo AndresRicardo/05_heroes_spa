@@ -1,0 +1,71 @@
+
+.heroPageContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardContainer{
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.cardImageContainer{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.cardImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.cardInfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px 10px;
+    color: white;
+    font-family: roboto;
+    font-size: 1.0rem;
+}
+
+.heroAlterEgo{
+    border: none;
+    
+}
+
+.firstAppears{
+    border: none;
+    
+}
+
+.publisher{
+    border: none;
+
+}
+
+p{
+    margin: 3px 0px;
+}
+
+.masInfo{
+    text-decoration: none;
+    color: yellow;
+}
+
