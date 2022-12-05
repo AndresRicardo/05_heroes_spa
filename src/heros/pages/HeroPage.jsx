@@ -1,11 +1,20 @@
-import { Navigate, NavLink, useParams } from "react-router-dom";
+import { useMemo } from "react";
+import { Navigate, NavLink, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../helpers/getHeroById";
+import { getPathByHero } from "../helpers/getPathByHero";
 import styles from "./HeroPage.module.css";
+import "animate.css";
 
 export const HeroPage = () => {
 	const params = useParams();
+	const navigate = useNavigate();
 	const { id } = params;
-	const hero = getHeroById(id);
+	const hero = useMemo(() => getHeroById(id), [id]);
+
+	const handleBack = (hero) => {
+		const publisherPath = getPathByHero(hero);
+		navigate(publisherPath);
+	};
 
 	if (hero === undefined) return <Navigate to={-1} />;
 
@@ -16,8 +25,12 @@ export const HeroPage = () => {
 			) : (
 				<>
 					<div className={styles.heroPageContainer}>
-						<h1>{hero.superhero.toUpperCase()}</h1>
-						<div className={styles.cardContainer}>
+						<h1 className={styles.heroPageTitle}>
+							{hero.superhero.toUpperCase()}
+						</h1>
+						<div
+							className={`${styles.cardContainer} animate__animated animate__fadeInLeft`}
+						>
 							<div className={styles.cardImageContainer}>
 								<img
 									className={styles.cardImage}
@@ -36,16 +49,25 @@ export const HeroPage = () => {
 									First appears: {hero.first_appearance}
 								</p>
 								<p className={styles.publisher}>
-									Publisher: {hero.publisher}
+									<NavLink
+										className={styles.atras}
+										to={getPathByHero(hero)}
+									>
+										Publisher: {hero.publisher}
+									</NavLink>
 								</p>
-								<NavLink
-									className={styles.masInfo}
-									to={`/hero/${hero.id}`}
-								>
-									Más info...
-								</NavLink>
+								<p className={styles.characters}>
+									Characters: {hero.characters}
+								</p>
 							</div>
 						</div>
+
+						<button
+							className={styles.back}
+							onClick={() => handleBack(hero)}
+						>
+							Back
+						</button>
 					</div>
 				</>
 			)}
