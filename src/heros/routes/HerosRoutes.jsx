@@ -1,13 +1,14 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { Navbar } from "../../ui";
 import { DcPage, HeroPage, MarvelPage, SearchPage } from "../pages";
+import styles from "./HerosRoutes.module.css";
 
 export const HerosRoutes = () => {
 	return (
 		<>
 			<Navbar />
-			<div className="container">
+			<div className={styles.container}>
 				<Routes>
 					<Route path="/" element={<MarvelPage />} />
 					<Route path="/marvel" element={<MarvelPage />} />

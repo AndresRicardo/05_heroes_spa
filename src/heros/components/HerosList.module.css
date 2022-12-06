@@ -3,12 +3,12 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 20px 0px;
-    min-width: 50px;
+    min-width: 250px;
 }
 
 .alertMessage {
     margin: 0px 0px 5px 0px;
-    width: 70%;
+    width: min-content;
     height: 40px;
     width: 70%;
     border: none;
